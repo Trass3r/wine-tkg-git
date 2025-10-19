@@ -1,8 +1,7 @@
 name: Wine Ubuntu CI
 
 on:
-  schedule:
-    - cron:  '25 9,21 * * *'
+  push:
   workflow_dispatch:
 
 jobs:
@@ -19,6 +18,7 @@ jobs:
           sudo aptitude remove -y '?narrow(?installed,?version(deb.sury.org))'
           cd wine-tkg-git 
           sed -i 's/_NOLIB32="false"/_NOLIB32="wow64"/' wine-tkg-profiles/advanced-customization.cfg
+          sed -i 's/_pkg_strip="true"/_pkg_strip="false"/' wine-tkg-profiles/advanced-customization.cfg
           sed -i 's/_use_esync="false"/_use_esync="true"/' customization.cfg
           sed -i 's/_use_fsync="false"/_use_fsync="true"/' customization.cfg
           sed -i 's/_use_fsync="false"/_use_fsync="true"/' customization.cfg
