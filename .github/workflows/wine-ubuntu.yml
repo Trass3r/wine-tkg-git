@@ -21,6 +21,10 @@ jobs:
           sed -i 's/_NOLIB32="false"/_NOLIB32="wow64"/' wine-tkg-profiles/advanced-customization.cfg
           sed -i 's/_use_esync="false"/_use_esync="true"/' customization.cfg
           sed -i 's/_use_fsync="false"/_use_fsync="true"/' customization.cfg
+          sed -i 's/_use_fsync="false"/_use_fsync="true"/' customization.cfg
+          sed -i 's/_plain_version=""/_plain_version="wine-10.16"/' customization.cfg
+          sed -i 's/_staging_version=""/_staging_version="v10.16"/' customization.cfg
+
           echo '_ci_build="true"' >> customization.cfg
           touch tarplz
           yes|./non-makepkg-build.sh
